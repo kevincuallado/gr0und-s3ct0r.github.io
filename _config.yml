@@ -24,7 +24,7 @@ github_username:  gr0und-s3ct0r
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: architect
 gems:
   - jekyll-feed
 exclude:
