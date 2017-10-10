@@ -1,4 +1,4 @@
-# How to contribute to ansible project
+# How to contribute to the ansible project
 
 ## Introduction
 
