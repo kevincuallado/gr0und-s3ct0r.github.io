@@ -2,11 +2,16 @@
 
 ## Introduction
 
-    Because we find Ansible, just awsome, we would like to share our experience about contributing to it. We will see, step-by-step, how to contribute to Ansible and generally on a lot of open-source projects. We so will begin it by refreshing you on what is Ansible. Next we will see four steps, how to set-up your environment, how to develop on it, how to perform your first pull-request and then we will se the best process to have your request accepted. 
+Because we find Ansible, just awsome, we would like to share our experience about contributing to it. 
+We will see, step-by-step, how to contribute to Ansible and generally on a lot of open-source projects. 
+We so will begin it by refreshing you on what is Ansible. 
+Next we will see four steps, how to set-up your environment, how to develop on it, how to perform your first pull-request and then we will se the best process to have your request accepted. 
 
 ## Goals
 
-    The goal of this article is, of course, how to become an Ansible contributor, but not only, we will help you to speed up your pull-request merge! Ansible is needing help, and of course everyone are welcome! Let's begin!
+The goal of this article is, of course, how to become an Ansible contributor, but not only, we will help you to speed up your pull-request merge! 
+
+Ansible is needing help, and of course everyone are welcome! Let's begin!
 
 ## Prerequisites
 Contribute to ansible needs some prerequisites.
