@@ -9,11 +9,22 @@
     become Ansible contributor
 
 ## Prerequisites
+Contribute to ansible needs some prerequisites.
 
-    un ordinateur avec python (2.7 ou 3.5)
-    pipenv
-    un compte github
-    git installé
+Ansible is written in python so you need to install different versions to ensure compatibility:
+- python 2.7
+- python 3.5
+
+For improve development lifecycle we strongly encourage you to use [pipenv](https://github.com/kennethreitz/pipenv).
+Instead, you can use mainstream tools like `virtualenv` and `pip`.
+
+Ansible project is hosted on github so [you require a github account](https://github.com/) for deal with it.
+
+Github is based on the `git` version control system, so you need to install it.
+
+Ansible tests and integration have parts based on docker.
+You'll need to install [docker](https://www.docker.com/) to have a fully isolated development setup to play your playbooks against it.
+For information this is an very interesting part of contributions on ansible.
 
 ## What's Ansible?
     Principe de fonctionnement
