@@ -1,9 +1,9 @@
-# How to contribute to the ansible project
+# How to contribute on Ansible project
 
 ## Introduction
 
-Because we find Ansible, just awsome, we would like to share our experience about contributing to it. 
-We will see, step-by-step, how to contribute to Ansible and generally on a lot of open-source projects. 
+Because we find Ansible, just awsome, we would like to share our experience about contributing on it. 
+We will see, step-by-step, how to contribute on Ansible and generally on a lot of open-source projects. 
 We so will begin it by refreshing you on what is Ansible. 
 Next we will see four steps, how to set-up your environment, how to develop on it, how to perform your first pull-request and then we will se the best process to have your request accepted. 
 
@@ -14,22 +14,22 @@ The goal of this article is, of course, how to become an Ansible contributor, bu
 Ansible is needing help, and of course everyone are welcome! Let's begin!
 
 ## Prerequisites
-Contribute to ansible needs some prerequisites.
+Contribute on Ansible implies some prerequisites.
 
-Ansible is written in python so you need to install different versions to ensure compatibility:
+Ansible is written in python so you'll need different versions to ensure compatibility:
 - python 2.7
 - python 3.5
 
-For improve development lifecycle we strongly encourage you to use [pipenv](https://github.com/kennethreitz/pipenv).
+To improve development lifecycle we will use [pipenv](https://github.com/kennethreitz/pipenv).
 Instead, you can use mainstream tools like `virtualenv` and `pip`.
 
 Ansible project is hosted on github so [you require a github account](https://github.com/) for deal with it.
 
-Github is based on the `git` version control system, so you need to install it.
+Github is based on the `git` version control system, so you'll need it.
 
-Ansible tests and integration have parts based on docker.
-You'll need to install [docker](https://www.docker.com/) to have a fully isolated development setup to play your playbooks against it.
-For information this is an very interesting part of contributions on ansible.
+You'll need also [docker](https://www.docker.com/) to have a fully isolated development setup to play your playbooks against.
+Ansible unit and integration tests have parts also based on docker.
+For your information, this is a very interesting part to contribute on Ansible.
 
 ## What's Ansible?
     Principe de fonctionnement
