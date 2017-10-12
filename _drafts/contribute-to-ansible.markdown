@@ -6,6 +6,7 @@ Because we find Ansible, just awsome, we would like to share our experience abou
 We will see, step-by-step, how to contribute on Ansible and generally on a lot of open-source projects. 
 We so will begin it by refreshing you on what is Ansible. 
 Next we will see four steps, how to set-up your environment, how to develop on it, how to perform your first pull-request and then we will se the best process to have your request accepted. 
+We will follow two of our contributions as example during all this article. The first one was an issue on oom_killer option of docker_container module [#29886](https://github.com/ansible/ansible/issues/29886), the second one was ....TODO: 4383: choose the one you wanna explain, maybe it could be a good idea to don't choose a fix ... 
 
 ## Goals
 
