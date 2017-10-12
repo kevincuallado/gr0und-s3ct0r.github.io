@@ -218,8 +218,25 @@ $ pip install -r ./test/runner/requirements/sanity.txt
     e. push on your github repository
 
 ## Step 3 - Make a pull request
-    a . create PR in github
+
+Congrats ! You should be ready now to create your first pull request (PR) on [ansible project](https://github.com/ansible/ansible).
+
+    a . Create a pull request on ansible github project.
+You now have pushed your new branch into your fork. The next step is now to create the PR. to do this, let's go to the ansible github
+ project page : [https://github.com/ansible/ansible](https://github.com/ansible/ansible). 
+You should see a button 'Compare & pull request' on the top of the page :
+![Compare & pull request](../_img/contribute-to-ansible/create_merge_request.png)
+
+You simply have to click it (of course) and you'll be able to check if you're not trying to PR unwanted commits or have a look to 
+your code to visually check that everything seems ok. You have to double check at this step that you are asking a merge to devel branch.
+
+Once it looks goot for you, click "Create pull request" and, congrats, your request is proposed to ansible community !
+Few seconds after created it, the CI will run all the relevant tests againts your new MR while a bot will take care of it and add severals labels regarding your code.
+If the CI is correct and pass all the tests, the bot will ping some relevant mainteners to review your PR. For example, if your are trying to fix an issue on a module, 
+the bot will ping the module's authors and mainteners. The goal from this point is to obtain two shipit (or LGTM) to have your PR merged, we will treat this in step 4.
+
     b. understand ansibullbot labels
+
 
 ## step 4 - What's happens next?
     a. How to integrate modifications to the PR
