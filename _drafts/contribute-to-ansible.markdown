@@ -1,5 +1,9 @@
-# How to contribute on Ansible project
-
+---
+layout: post
+title:  "How to contribute to ansible project"
+date:   2016-12-6 12:55:28 +0100
+categories: ansible contribute version git fork bug report
+---
 ## Introduction
 
 Because we find Ansible, just awsome, we would like to share our experience about contributing on it. 
@@ -66,10 +70,45 @@ The [Ansible documentation](http://docs.ansible.com/ansible/latest/index.html) i
 
 ## Why contribute?
 
-    A la recherche de volontaires,
-    montée en compétence sur le sujet
-    pouvoir corriger d'éventuels bugs
-    rajouter des modules ou plugins
+Ansible usage have grew up rapidly and many issues are continously opened.
+
+An issue can be a feature request, a bug reporting, or even simply a question to the maintainance team.
+Rather than considering, ansible need contributors to continue to improve its quality and stability every days..
+
+Ansible is an opensource project maintained by the redhat company, so he have to kind of contributors:
+- the biggest parts of contributors are volunteers and works on ansible on free times.
+- the rest of the contributors are considered as commiters, they are members of the core team.
+
+You can contribute by adding parts of documentation, migrate code, fix issues or even adding features.
+So all contributions are welcomes!
+
+Contributing helps you to improve your skill about ansible but also improve your
+skills on large distribued development team all around the world.
+
+You would become more efficient with git usages, concepts, and a lot of stuffs very useful in the real life.
+
+Working on this project allowed us to discover it in depth. We discovered new uses, new modules, and a lot of nice things.
+
+Contributing follow guidelines. These guidelines help developers to learn how to develop on ansible.
+The community can help you to introduce yourself inside contribution project.
+
+Ansible project is hosted on [github](https://github.com/ansible/ansible) you can fork this project and start to work on.
+
+The contribution guidelines was describe in the [contribution code](http://docs.ansible.com/ansible/latest/community.html#contributing-code-features-or-bugfixes).
+
+For submit your work you must deal with [github pull request](https://help.github.com/articles/using-pull-requests).
+
+You can also read [how to developing modules](http://docs.ansible.com/ansible/dev_guide/developing_modules.html), and [how to testing your work](http://docs.ansible.com/ansible/dev_guide/testing.html)  in the [official documentation](http://docs.ansible.com/ansible/latest/dev_guide/).
+
+If you need help many communication channel are available for that:
+- [IRC channels](http://docs.ansible.com/ansible/latest/community.html#irc-channel)
+- [IRC meetings](http://docs.ansible.com/ansible/latest/community.html#irc-meetings)
+- [mailing list](http://docs.ansible.com/ansible/latest/community.html#mailing-list-information)
+
+You can [find several issues on the github project page](https://github.com/ansible/ansible/issues), select your subject and workon for starting contributing.
+Hovewer you can [follow topics projects](https://github.com/ansible/ansible/projects) for summarize issues by themes.
+
+Now it's time to start contributing!
 
 ## Step 1 - Prepare environment
     a. Récupérer les sources
