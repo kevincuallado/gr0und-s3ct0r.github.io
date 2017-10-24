@@ -111,13 +111,101 @@ Hovewer you can [follow topics projects](https://github.com/ansible/ansible/proj
 Now it's time to start contributing!
 
 ## Step 1 - Prepare environment
-    a. Récupérer les sources
-        . Forker le projet
-        . checkouter en local
-        . configurer l'upstream (avec comment update le fork)
-        . se placer sur la bonne branche
 
-    b. Créer un environnement python (pyvenv)
+#### a. Setup your fork
+
+First, go to the [ansible github official page](https://github.com/ansible/ansible) and click on the fork button.
+
+![Fork ansible]({{ "/assets/contribute-to-ansible/fork-ansible.png" | absolute_url }})
+
+Wait a few moments and now your fork appear in your github account.
+
+![Now ansible was forked]({{ "/assets/contribute-to-ansible/forked.png" | absolute_url }})
+
+Now prepare your local environment.
+
+```sh
+$ # setup your identity
+$ git config --global user.name "<your name>"
+$ git config --global user.email "<your-email@example.com>"
+$ # setup pushing method
+$ git config --global push.default current
+```
+
+Clone your fork localy and place yourself to the right branch:
+
+```sh
+$ git clone https://github.com/<your-github-account>/ansible
+$ cd ansible
+$ git checkout devel
+```
+
+Configure your clone for fetching upstream updates:
+
+```sh
+$ git remote add upstream https://github.com/ansible/ansible
+$ # check remotes
+$ git remote -v
+origin  https://github.com/<your-github-username>/ansible (fetch)
+origin  https://github.com/<your-github-username>/ansible (push)
+upstream        https://github.com/ansible/ansible (fetch)
+upstream        https://github.com/ansible/ansible (push)
+```
+
+Synchronize your local clone with upstream:
+```sh
+$ git fetch upstream
+...
+$ git merge upstream/devel
+```
+
+Update your forked repository
+```sh
+$ git push origin devel
+```
+
+#### b. Setup your python environment
+
+Ansible is written in python so you need to setup a python develop environment.
+
+Setup a new python virtual environment:
+
+```sh
+$ pipenv --python 3.5 # replace python version for python 2.7
+$ pipenv shell
+$ # your now in your python virtual environment
+```
+
+Now source ansible development context:
+```sh
+$ source hacking/env-setup
+```
+
+Install base dependencies:
+```sh
+$ pip install -r requirements.txt
+```
+
+Ansible come with a lots of development dependencies, you can install all or just a subset
+in concordance with your development purpose.
+
+If you work on documentation all development dependencies are presents in `./docsite_requirements.txt`.
+```sh
+$ pip install -r ./docsite_requirements.txt
+```
+
+To working on bugfix, tests, or new features you need to install specific requirements:
+```sh
+$ # minimal subset of requirements to install
+$ pip install -r ./test/runner/requirements/units.txt
+$ pip install -r ./test/runner/requirements/integration.txt
+$ pip install -r ./test/runner/requirements/coverage.txt
+$ pip install -r ./test/runner/requirements/constraints.txt
+$ pip install -r ./test/runner/requirements/ansible-test.txt
+$ pip install -r ./test/runner/requirements/sanity.txt
+```
+
+#### c. Setup your docker environment
     c. Créer des hotes à configurer (docker)
 
 ## Step 2 - Take action!
