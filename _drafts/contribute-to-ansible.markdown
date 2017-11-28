@@ -428,10 +428,80 @@ Now you can start to submit your pull request to the official project.
     b. understand ansibullbot labels
 
 ## step 4 - What's happens next?
-    a. How to integrate modifications to the PR
-    b. obtain 2 shipit
 
-    Git
-    Github
+Now you have submitted your pull request to the official ansible project,
+you may be confronted to two possible cases.
+
+- First, after a code review maintainers can ask you to apply changes in your code.
+- Secondly, your changes looks good and you gets two shipit.
+
+Now we want to explain how to deals with these use cases.
+
+#### a. How to integrate modifications to the PR
+
+After a code review maintainers can ask you to apply somes changes in your
+developments.
+
+If you wants your work being merged, you have to apply these review comments, it's a sine qua non condition.
+
+So in your local environment apply these changes on the branch related to your pull request.
+
+When you have fix the review comments, you can push your modifications into your fork:
+
+```sh
+$ git push origin <your-branch-name>
+```
+
+Then, your changes are automaticaly integrated to the already existing pull request. You have just to notify
+the comments author to review your changes.
+
+```
+@reviewer_name changes applied!
+```
+
+If your changes are accepted the reviewer can approuve these by sending a shipit to your pull request.
+
+#### b. Obtain 2 shipit
+
+To get your changes merged in the official project you need to obtains at least 2 `shipit`.
+
+Shipit is a keyword recognized by the ansibulbot.
+
+If your modifications are on a community module the ansibulbot can automaticaly merge your changes
+with the official repository source code, else, if your changes are on a core module,
+your modifications are merged by a core maintainer and can be rejected by him if something went wrong.
+
+The community is very active, code review and shipit can happen faster than you think.
+
+We recommand you to check periodicaly the status of your merge request.
+If your pull request doesn't move forward you can ask module maintainers for a review.
+
+Do not stay inactive and be proactive about your work!
 
 ## Conclusion
+
+Ansible is an indispensable tool, used by DevOps, system engineers, and a lot of
+teams and projects all around the world. Have deep knownledge on this technology
+is a great assets to your career, specialy for DevOps/system jobs.
+In addition to that contributing to ansible helps this product to be more efficient
+and great!
+
+With this article we have introduced to you on how to become contributors and make 
+ansible more understandable.
+
+We hope you liked our article, and do not hesitate to contact us to discuss with us.
+
+## About the authors
+
+#### [Sébastien Boyron (dj4ngo)](https://github.com/dj4ngo)
+
+Lead System engineer at [Squad](https://www.squad.fr/en/)
+
+#### [Hervé Beraud (4383)](https://github.com/4383)
+
+Hervé Beraud have contributed to the ansible project it was also contributor 
+on Alpine Linux and somes others projects and stuffs. He's a python addict, and 
+DevOps enthusiastic. Also he's specialized on CI/CD workflow, methods,
+and best practices on openstack tripleO technologies and he use ansible everyday at works.
+
+He's currenty Lead DevOps Engineer and Python expert at [Squad](https://www.squad.fr/en/).
