@@ -6,41 +6,40 @@ categories: ansible contribute version git fork bug report
 ---
 ## Introduction
 
-Because we find Ansible, just awsome, we would like to share our experience about contributing on it. 
-We will see, step-by-step, how to contribute on Ansible and generally on a lot of open-source projects. 
-We so will begin it by refreshing you on what is Ansible. 
-Next we will see four steps, how to set-up your environment, how to develop on it, how to perform your first pull-request and then we will se the best process to have your request accepted. 
-We will follow two of our contributions as example during all this article. The first one was an issue on oom_killer option of docker_container module [#29886](https://github.com/ansible/ansible/issues/29886), the second one was ....TODO: 4383: choose the one you wanna explain, maybe it could be a good idea to don't choose a fix ... 
+Since we find Ansible awesome, we wanted to share our experience of contributing to it. In this article we will explain, step by step, how to contribute to Ansible, and more globally to a lot of open-source projects.  For those who don't quite know what Ansible is, we will start with a refresher; we will then move on to setting up your environment, developing on it, performing your first pull-request and, finally, we'll finish with tips on how to get your request accepted.
+
+We will use throughout the article two of our contributions as examples. The [first issue](https://github.com/ansible/ansible/issues/29886) was on the `oom_killer`option of the `docker_container` module ; [second one](https://issue-link.com) was on <Insert issue here, but maybe not a fix since we already have one>.
 
 ## Goals
 
-The goal of this article is, of course, how to become an Ansible contributor, but not only, we will help you to speed up your pull-request merge! 
+The main goal of this article is to make you into a good Ansible contributor; however this guide can be used on a lot of other projects too, and especially in regards to the speed at which your pull-requests are merge!
 
-Ansible is needing help, and of course everyone are welcome! Let's begin!
+Before we start, we would like to emphasize once more that, like most open-source projects, Ansible is always in need of help from the community to make it better. Everyone is welcome to take part, and the more the merrier! On this note, let's begin!
 
 ## Prerequisites
-Contribute on Ansible implies some prerequisites.
 
-Ansible is written in python so you'll need different versions to ensure compatibility:
-- python 2.7
-- python 3.5
+in order to contribute to Ansible, you'll need a few things to get started.
 
-To improve development lifecycle we will use [pipenv](https://github.com/kennethreitz/pipenv).
-Instead, you can use mainstream tools like `virtualenv` and `pip`.
+* **python** : Ansible is written in Python so, to ensure compatibility, you'll need different versions. We recommend using *python 2.7* and *python 3.5*.
 
-Ansible project is hosted on github so [you require a github account](https://github.com/) for deal with it.
+* **pipenv**: To improve the development lifecycle, we will use [pipenv](https://github.com/kennethreitz/pipenv); however, you are welcome to use other tools such as `virtualenv` and `pip` instead if you are more used to them.
 
-Github is based on the `git` version control system, so you'll need it.
+* **GitHub**: Since the project is hosted on GitHub, you'll need to have an account. You can create one for free [here](https://github.com/).
 
-You'll need also [docker](https://www.docker.com/) to have a fully isolated development setup to play your playbooks against.
-Ansible unit and integration tests have parts also based on docker.
-For your information, this is a very interesting part to contribute on Ansible.
+* **git**: GitHub being based on `git`, you'll need to have it installed on your computer. If you are new to git, you can find more information on the [official website](https://git-scm.com/).
 
-## What's Ansible?
+* **docker**: Finally, you'll need to install [docker](https://www.docker.com/) in order to create a fully isolated environment setup on which you can run your playbooks. As a matter of fact, some of Ansible's unit and integration tests are partly built on docker.
+
+* **motivation**: Working on an open-source project such as Ansible can be a really fun and rewarding experience. Always remember that it's because of people who, like you, have the motivation to give some of their time for free that the open-source community continues to thrive.
+
+## So what's Ansible?
     
-If you are reading this article, you should propably be already familiar with Ansible... So if you're not reading it, we'll explain it quickly ...
+Most of you reading the articles will probably be familiar with Ansible, but a little recap never hurts.
 
-Ansible is a simple IT automation engine. It is designed to easily configure several servers. It's a really good devOps partner to automate quickly and easily a CI/CD for example. Ansible have a lot of plugins which are used to manage almost everything in a server, network device, storage bay.... It is easy-to-use; all the configuration ans playbooks are simple yaml files and it doesn't need any agent on managed nodes. Ansible requires only an SSH connection and python installed on the manages server. In fact, that's not really true since Ansibe can manage windows nodes using the powershell distant connexion. It is fair to say that we will cover only the Linux use cases in this article. Ansible force lie in the capability to easily configure a lot of devices and guaranty that the configuration is consistent in all targets regardless the initial state. How is it done ? The concept behind an Ansible module is to be re-enterable!
+Ansible is a simple IT automation Engine. It is designed to easily configure as many servers as possible with little effort; this makes it the perfect devOps partner for automation, such as CI/CD processes. Ansible also has a wide variety of plugins which enable it to manage about anything in machines such as servers, network devices, storage bays... It's easy to learn, does not need anything installed, and its configuration and playbooks are written in YAML, which is a highly readable data format. The only thing Ansible requires to work is to have python and an SSH server installed on the managed servers, and even then, it can also manage Windows servers with PowerShell, though we will only be using Linux use cases here. Ansible force lies in its capability to easily configure a maximum of devices and the guarantee that the configuration will be constitent with all targets regardless of their initial state. What is its secret? The re-enterability < I don't know what that word means > of Ansible modules! 
+
+---
+
 
 Ansible have severals competitors like, [Chef](https://www.chef.io/chef/), [Puppet](https://puppet.com/), [Saltstack](https://saltstack.com/), [Fabric](https://fabric.io) or others. Why did we choose Ansible? As we said previously, it is easy to use, and don't need agent. It is fully coded in python which is a language we appreciate and, on top of that, we are using it professionnaly every days and are really happy with it, of course. 
 
