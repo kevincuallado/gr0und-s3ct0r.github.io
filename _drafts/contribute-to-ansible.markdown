@@ -8,7 +8,7 @@ categories: ansible contribute version git fork bug report
 
 Since we find Ansible awesome, we wanted to share our experience of contributing to it. In this article we will explain, step by step, how to contribute to Ansible, and more globally to a lot of open-source projects.  For those who don't quite know what Ansible is, we will start with a refresher; we will then move on to setting up your environment, developing on it, performing your first pull-request and, finally, we'll finish with tips on how to get your request accepted.
 
-We will use throughout the article two of our contributions as examples. The [first issue](https://github.com/ansible/ansible/issues/29886) was on the `oom_killer`option of the `docker_container` module ; [second one](https://issue-link.com) was on <Insert issue here, but maybe not a fix since we already have one>.
+We will use throughout the article two of our contributions as examples. The [first issue](https://github.com/ansible/ansible/issues/29886) was on the `oom_killer`option of the `docker_container` module; the [second one](https://issue-link.com) was on <Insert issue here, but maybe not a fix since we already have one>.
 
 ## Goals
 
