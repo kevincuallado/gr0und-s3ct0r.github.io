@@ -87,17 +87,17 @@ And now, it's time to get contributin'!
 
 #### a. Forking the project
 
----
-
-First, go to the [ansible github official page](https://github.com/ansible/ansible) and click on the fork button.
+To start working on the project, you'll need to fork it. To do so, go to the [ansible official GitHub page](https://github.com/ansible/ansible) and click on the fork button.
 
 ![Fork ansible]({{ "/assets/contribute-to-ansible/fork-ansible.png" | absolute_url }})
 
-Wait a few moments and now your fork appear in your github account.
+A few moments later, your fork should appear in your github account.
 
 ![Now ansible was forked]({{ "/assets/contribute-to-ansible/forked.png" | absolute_url }})
 
-Now prepare your local environment.
+#### b. Setting up your git environment
+
+You can now setup your local environment. First, you'll need to set up your git workspace. To do so, and if possible, open your git shell. If you are on Linux or MacOS, simply open a terminal; on Windows, you'll have to start an executable.
 
 ```sh
 $ # setup your identity
@@ -107,7 +107,7 @@ $ # setup pushing method
 $ git config --global push.default current
 ```
 
-Clone your fork localy and place yourself to the right branch:
+Now, clone the fork on your computer and get on the right branch. To make things easier, you may consider having a folder where you clone all your git projects.
 
 ```sh
 $ git clone https://github.com/<your-github-account>/ansible
@@ -115,7 +115,8 @@ $ cd ansible
 $ git checkout devel
 ```
 
-Configure your clone for fetching upstream updates:
+
+To make sure you stay up-to-date, you'll want to configure your clone to be able to receive updates from the project. Keep in mind that, from now on, we may refer to the remote or your fork as `origin`, and the remote of the official project as `upstream`.
 
 ```sh
 $ git remote add upstream https://github.com/ansible/ansible
@@ -127,23 +128,27 @@ upstream        https://github.com/ansible/ansible (fetch)
 upstream        https://github.com/ansible/ansible (push)
 ```
 
-Synchronize your local clone with upstream:
+Now that the upstream is set up, if you ever need to synchronize your clone with the upstream, you'll just have to do the following:
+
 ```sh
 $ git fetch upstream
 ...
 $ git merge upstream/devel
 ```
 
-Update your forked repository
+Don't forget after a synchronisation to update your fork!
+
 ```sh
 $ git push origin devel
 ```
 
-#### b. Setup your python environment
+There you go! The project is now ready to be worked on on your computer!
 
-Ansible is written in python so you need to setup a python develop environment.
+#### c. Setup your python environment
 
-Setup a new python virtual environment:
+Since Ansible is written in python, you'll need to setup a python working environment. Though we will use `pipenv`, you are welcome to use any python environment manager you are most confortable with.
+
+First, setup the environment itself:
 
 ```sh
 $ pipenv --python 3.5 # replace python version for python 2.7
@@ -151,7 +156,7 @@ $ pipenv shell
 $ # your now in your python virtual environment
 ```
 
-Now source ansible development context:
+Now source, source the ansible context:
 ```sh
 $ source hacking/env-setup
 ```
@@ -161,15 +166,12 @@ Install base dependencies:
 $ pipenv install -r requirements.txt
 ```
 
-Ansible come with a lots of development dependencies, you can install all or just a subset
-in concordance with your development purpose.
+Ansible comes with a lot of development dependencies, you can install all of them or just a subset depending on what you're working on. For instance, if you're working on the documentation, all development dependencies are present in `./docsite_requirements.txt`.
 
-If you work on documentation all development dependencies are presents in `./docsite_requirements.txt`.
 ```sh
 $ pipenv install -r ./docsite_requirements.txt
 ```
-
-To working on bugfix, tests, or new features you need to install specific requirements:
+On the other hand, if you're working on bugfixes, tests or new features, you'll need to install specific dependencies:
 ```sh
 $ # minimal subset of requirements to install
 $ pipenv install -r ./test/runner/requirements/units.txt
@@ -180,8 +182,10 @@ $ pipenv install -r ./test/runner/requirements/ansible-test.txt
 $ pipenv install -r ./test/runner/requirements/sanity.txt
 ```
 
-#### c. Setup your docker environment
-    c. Créer des hotes à configurer (docker)
+Your python environment is now fully setup and ready for work; all that is left to prepare is docker.
+
+#### d. Setup your docker environment
+    d. Créer des hotes à configurer (docker)
 
 ## Step 2 - Take action!
 
