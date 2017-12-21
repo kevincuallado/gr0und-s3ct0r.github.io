@@ -38,80 +38,56 @@ Most of you reading the articles will probably be familiar with Ansible, but a l
 
 Ansible is a simple IT automation Engine. It is designed to easily configure as many servers as possible with little effort; this makes it the perfect devOps partner for automation, such as CI/CD processes. Ansible also has a wide variety of plugins which enable it to manage about anything in machines such as servers, network devices, storage bays... It's easy to learn, does not need anything installed, and its configuration and playbooks are written in YAML, which is a highly readable data format. The only thing Ansible requires to work is to have python and an SSH server installed on the managed servers, and even then, it can also manage Windows servers with PowerShell, though we will only be using Linux use cases here. Ansible force lies in its capability to easily configure a maximum of devices and the guarantee that the configuration will be constitent with all targets regardless of their initial state. What is its secret? The re-enterability < I don't know what that word means > of Ansible modules! 
 
----
+Ansible has several competitors like [Chef](https://www.chef.io/chef/), [Puppet](https://puppet.com/), [Saltstack](https://saltstack.com/), [Fabric](https://fabric.io) and other; we chose it because of its ease of use and agentless-ness. It is coded entirely in python, which is a language we appreciate and, on top of that, we use it everyday at work and are very satisfied with it. 
+
+*"Now, that sounds great buy where's the catch?"* you may wonder. Ansible is open-source, with a growing community and very easy to use, so you'll probably gain time in the long run by investing in learning how to use it; it is also completely free (you can have some support on some modules for prefessional use cases).
 
 
-Ansible have severals competitors like, [Chef](https://www.chef.io/chef/), [Puppet](https://puppet.com/), [Saltstack](https://saltstack.com/), [Fabric](https://fabric.io) or others. Why did we choose Ansible? As we said previously, it is easy to use, and don't need agent. It is fully coded in python which is a language we appreciate and, on top of that, we are using it professionnaly every days and are really happy with it, of course. 
+#### Back to the basics :
 
-OK, that sounds great, but what's the price? Ansible is an open-source project which have a growing community and it is really easy to use, so it won't costs many times (it will even save so much !) and it's fully free (you can have some support on some modules for profesionnal purposes regarding your use cases).
+Before we begin, let's define a few technical terms:
+  - Ansible is executed on a host server called the `controller`
+  - Ansible manages servers/devices called `managed nodes`.
+For a more comprehensive glossary, you can check out the [full official one](http://docs.ansible.com/ansible/latest/glossary.html).
 
+Ansible uses an [inventory](http://docs.ansible.com/ansible/latest/intro_inventory.html), which defined information about the accessed nodes in one or more YAML files. It is used to make SSH connections to manage the nodes. You can choose to either use password or key authentication and are able to elevate your privileges on the managed node with su, sudo, or [similar tools](http://docs.ansible.com/ansible/latest/become.html). You can even use an SSH bastion by added ssh args variables or an already configured `ssh_config` file. This should allow you to connect in almost any situation.
 
+To specify the operations to perform on the managed nodes, you will need to write a playbook, once again in YAML fomat. You can find extensive documentation on writing playbooks [here](http://docs.ansible.com/ansible/latest/playbooks.html). To avoid duplicating roles and allow for more flexibility, we stronly recommend that you use [playbook roles](http://docs.ansible.com/ansible/latest/playbooks_roles.html); wel also suggest that you take a moment to read the [best practices](http://docs.ansible.com/ansible/latest/playbooks_best_practices.html) on how to organize your Ansible directory.
 
-#### Let's see main principles :
-
-We will just define few glossary terms before:
-There are two kinds of machines used during an Ansible deployment:
-  - Ansible is executed on a server host called `controller`
-  - The servers/devices managed by Ansible are called `managed nodes`
-Complete glossary is available [here](http://docs.ansible.com/ansible/latest/glossary.html) if you need it.
-
-Ansible uses an [inventory](http://docs.ansible.com/ansible/latest/intro_inventory.html)  which defines all managed nodes access in a simple (or multiples) YAML file. Ansible is using SSH to manage nodes. It can deal with a password or key authentication and is able to elevate privileges using su, sudo [or several others](http://docs.ansible.com/ansible/latest/become.html). You can even use an SSH bastion by simply using ssh args variables or your `ssh_config` file. This can address almost cases.
-
-To define what to perform on managed nodes you must creates playbook. This is still YAML files. You can find some documentation about playbooks [here](http://docs.ansible.com/ansible/latest/playbooks.html). To avoid having code duplication and win some flexibility I strongly recommend you to use [playbooks roles](http://docs.ansible.com/ansible/latest/playbooks_roles.html).
-
-We recommend to follow the [best practices](http://docs.ansible.com/ansible/latest/playbooks_best_practices.html) to organize your Ansible directory layout
-
-
-Get more informations on [how it works](https://www.ansible.com/how-ansible-works) or more generaly on [Ansible official site](https://www.ansible.com/) 
-The [Ansible documentation](http://docs.ansible.com/ansible/latest/index.html) is really up-to-date, well organised and contained a lots of example. It will be a great help for you. 
-
-    
+If you still want more information, you can check out [how Ansible works](https://www.ansible.com/how-ansible-works), or have a look at the [official website](https://www.ansible.com/) to find more resources, such as the well-written and up-to-date [official documentation](http://docs.ansible.com/ansible/latest/index.html). This should give you a much better idea of what Ansible is and how you can use it to make your daily work easier.
 
 ## Why contribute?
 
-Ansible usage have grew up rapidly and many issues are continously opened.
+Ansible is being used more and more in industry, so there are a lot of issues being opened. The issues can be a feature request, a bug report or even simply a question to the maintenance team. Contributors are still needed to improve the quality and stability of the project even now. 
 
-An issue can be a feature request, a bug reporting, or even simply a question to the maintainance team.
-Rather than considering, ansible need contributors to continue to improve its quality and stability every days..
+The project is open-source and maintained by RedHat, so there are two kinds of contributors:
+- the majority of contributors are volunteers and use their free time to work on Ansible
+- the rest are member are the core team, and they are considered as *commiters*.
 
-Ansible is an opensource project maintained by the redhat company, so he have to kind of contributors:
-- the biggest parts of contributors are volunteers and works on ansible on free times.
-- the rest of the contributors are considered as commiters, they are members of the core team.
+You can contribute by enhancing the documentation, migrating code, fixing issues or even adding features. All contributions are welcome! Not only will contributing improve your skills on Ansible, but also your ability to work in big teams, spread all over the world; moreover, your commits can be used in interviews as examples of your work. If you are not familiar with git yet, keep in mind that learning to use it well can be extremely useful as it is in use in most big companies today; if your company is not using it, it is also an opportunity to show you rproactivity and push them to start using it.
 
-You can contribute by adding parts of documentation, migrate code, fix issues or even adding features.
-So all contributions are welcomes!
+Working on this project allowed us to learn how to use it in depth. We discovered new use cases, new modules and other things by diving deep inside the code.
 
-Contributing helps you to improve your skill about ansible but also improve your
-skills on large distribued development team all around the world.
+To contribute, keep in mind that you'll need to follow [guidelines](http://docs.ansible.com/ansible/latest/community.html#contributing-code-features-or-bugfixes), which are put in place to help developers follow a similar programming style and keep the code uniform and easy to read. if you have any questions, you can ask the community, which will be a good way to meet new people with similar interests.
 
-You would become more efficient with git usages, concepts, and a lot of stuffs very useful in the real life.
+Before getting started, we highly recommend to read the [official development documentation](http://docs.ansible.com/ansible/dev_guide/testing.html), guides on [how to develop modules](http://docs.ansible.com/ansible/dev_guide/developing_modules.html) and [how to test your work](http://docs.ansible.com/ansible/dev_guide/testing.html) alongside the main guidelines.
 
-Working on this project allowed us to discover it in depth. We discovered new uses, new modules, and a lot of nice things.
+Once you know more about how to develop on Ansible, you'll want to find issues, either from the [issue list](https://github.com/ansible/ansible/issues) on the project page, or through the [topics list](https://github.com/ansible/ansible/projects). Once you know what you're going to work on, you'll have to [fork](https://help.github.com/articles/about-forks/) the project and, once you think you're done with the programming part, you'll have to create a [pull request](https://help.github.com/articles/using-pull-requests). Those concepts are important because they come back time and time again when working on very large scale project.
 
-Contributing follow guidelines. These guidelines help developers to learn how to develop on ansible.
-The community can help you to introduce yourself inside contribution project.
-
-Ansible project is hosted on [github](https://github.com/ansible/ansible) you can fork this project and start to work on.
-
-The contribution guidelines was describe in the [contribution code](http://docs.ansible.com/ansible/latest/community.html#contributing-code-features-or-bugfixes).
-
-For submit your work you must deal with [github pull request](https://help.github.com/articles/using-pull-requests).
-
-You can also read [how to developing modules](http://docs.ansible.com/ansible/dev_guide/developing_modules.html), and [how to testing your work](http://docs.ansible.com/ansible/dev_guide/testing.html)  in the [official documentation](http://docs.ansible.com/ansible/latest/dev_guide/).
-
-If you need help many communication channel are available for that:
+Finally, if you want to contact the community, you can use the following:
 - [IRC channels](http://docs.ansible.com/ansible/latest/community.html#irc-channel)
 - [IRC meetings](http://docs.ansible.com/ansible/latest/community.html#irc-meetings)
 - [mailing list](http://docs.ansible.com/ansible/latest/community.html#mailing-list-information)
 
-You can [find several issues on the github project page](https://github.com/ansible/ansible/issues), select your subject and workon for starting contributing.
-Hovewer you can [follow topics projects](https://github.com/ansible/ansible/projects) for summarize issues by themes.
+And now, it's time to get contributin'!
 
-Now it's time to start contributing!
 
-## Step 1 - Prepare environment
 
-#### a. Setup your fork
+## Step 1 - Preparing environment
+
+#### a. Forking the project
+
+---
 
 First, go to the [ansible github official page](https://github.com/ansible/ansible) and click on the fork button.
 
