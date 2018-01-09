@@ -112,18 +112,19 @@ Now it's time to start contributing!
 
 ## Step 1 - Prepare environment
 
-#### a. Setup your fork
+#### a. Setting up the fork
 
-First, go to the [ansible github official page](https://github.com/ansible/ansible) and click on the fork button.
+
+First, go to the [official Ansible GitHub page](https://github.com/ansible/ansible) and click on the fork button.
 
 ![Fork ansible]({{ "/assets/contribute-to-ansible/fork-ansible.png" | absolute_url }})
 
-Wait a few moments and now your fork appear in your github account.
+After a short time, the project should now appear on your profile.
 
 ![Now ansible was forked]({{ "/assets/contribute-to-ansible/forked.png" | absolute_url }})
 
-Now prepare your local environment.
-
+#### b. Setting up your git environment
+Now, let's prepare the local environment. First, set up the basicgit information: 
 ```sh
 $ # setup your identity
 $ git config --global user.name "<your name>"
@@ -132,16 +133,14 @@ $ # setup pushing method
 $ git config --global push.default current
 ```
 
-Clone your fork localy and place yourself to the right branch:
-
+Clone your fork on your computer and switch to the right branch:
 ```sh
 $ git clone https://github.com/<your-github-account>/ansible
 $ cd ansible
 $ git checkout devel
 ```
 
-Configure your clone for fetching upstream updates:
-
+Configure your clone to fetch upstream updates:
 ```sh
 $ git remote add upstream https://github.com/ansible/ansible
 $ # check remotes
@@ -152,23 +151,23 @@ upstream        https://github.com/ansible/ansible (fetch)
 upstream        https://github.com/ansible/ansible (push)
 ```
 
-Synchronize your local clone with upstream:
+Now, every time you'll want to update your local clone to follow the upstream repository, simply run:
 ```sh
 $ git fetch upstream
 ...
 $ git merge upstream/devel
 ```
 
-Update your forked repository
+Once updated don't forget to push to save those changes to your forked repo:
 ```sh
 $ git push origin devel
 ```
 
-#### b. Setup your python environment
+#### c. Setting up your python environment
 
-Ansible is written in python so you need to setup a python develop environment.
+Since Ansible is written in Python, you'll need to setup a python dvelopment environment.
 
-Setup a new python virtual environment:
+Start by setting up a new python virtual environment:
 
 ```sh
 $ pipenv --python 3.5 # replace python version for python 2.7
@@ -176,12 +175,12 @@ $ pipenv shell
 $ # your now in your python virtual environment
 ```
 
-Now source ansible development context:
+Now, source the Ansible development context:
 ```sh
 $ source hacking/env-setup
 ```
 
-Install base dependencies:
+Install the base dependencies:
 ```sh
 $ pipenv install -r requirements.txt
 ```
@@ -189,12 +188,12 @@ $ pipenv install -r requirements.txt
 Ansible come with a lots of development dependencies, you can install all or just a subset
 in concordance with your development purpose.
 
-If you work on documentation all development dependencies are presents in `./docsite_requirements.txt`.
+Ansible comes with a lot of development dependencies, so you can install all of them or just a subset according to what you're going to revelop on.
+If you are working on the documentation, all development dependencies are present in `./docsite_requirements.txt`.
 ```sh
 $ pipenv install -r ./docsite_requirements.txt
 ```
-
-To working on bugfix, tests, or new features you need to install specific requirements:
+If you are workin on a bugfix, tests or a new feature, you will need to install specific dependencies:
 ```sh
 $ # minimal subset of requirements to install
 $ pipenv install -r ./test/runner/requirements/units.txt
@@ -205,7 +204,7 @@ $ pipenv install -r ./test/runner/requirements/ansible-test.txt
 $ pipenv install -r ./test/runner/requirements/sanity.txt
 ```
 
-#### c. Setup your docker environment
+#### d. Setting up your docker environment
     c. Créer des hotes à configurer (docker)
 
 ## Step 2 - Take action!
