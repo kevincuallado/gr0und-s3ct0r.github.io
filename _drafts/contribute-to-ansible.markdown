@@ -187,56 +187,42 @@ Your python environment is now fully setup and ready for work; all that is left 
 #### d. Setup your docker environment
     d. Créer des hotes à configurer (docker)
 
-## Step 2 - Take action!
+## Step 2 - Getting to work!
 
 #### a. Find issues on ansible
-Now it's time to take actions! Now you'll be able to see what's going on under the hood of Ansible.
-First you need helps to find a subject to work on. Ansible gets an
-an issues tracker which will helps you can find ideas or ways of work.
-If your are neeby with ansible or python I recommand to you
-to prefer bugfix because it can be more easily at start than directly start to write a new feature.
-You can filter issues with labels and choose an easy fix by using the `easyfix` label.
+
+Now that your environment is fully operational, it's time to get to work! First, you'll need to find a subject to work on. Ansible has an [issue tracker](https://github.com/ansible/ansible/issues), so you'll want to go there to find something to work on. If you are new to Ansible and Python, we recommend that you begin with bugfixes as it's easier a problem to resolve than outright writing new features. Thankfully, the issue tracker comes with labels which allow you to filter easier problems, with the `easyfix` label, for instance.
 
 So! [go to the issues tracker and search jobs](https://github.com/ansible/ansible/issues)!
 
 ![Ansible issues tracker]({{ "/assets/contribute-to-ansible/ansible-issues-tracker.png" | absolute_url }})
 
-If you want to work on specific subjects or on specific kinds of
-issues you can apply filters on your research. Parts of filters are based on labels so you can use it to find your happiness.
+The labels also allow you to select certain subjects or types of issue you might prefer to work on. Here's an example :
 
-Example:
-
-Considere you want to works on the docker features of ansible, for fixing a bug or implement a new feature,
-you research for appropriated label and find the existing label docker. So apply this filter to your research
-and reach only the issues in connection with docker subject.
+You want to work on the Docker features of Ansible. You can use labels to find existing issues for bugs or features on that subject. Simply apply the filter to your search and you'll get all the features related to Docker on Ansible.
 
 ![Ansible filter issues by labels]({{ "/assets/contribute-to-ansible/ansible-filter-by-labels.png" | absolute_url }})
 
-Also you can filter for kind of issues (fix or feature) and refine your research.
+We strongly advice that you play around with the filter system to get acquainted with it; the more you're interested in an issue, the easeir it'll be to get it resolved!
 
-#### b. Start to work
 
-Well! You have your developmenent environment, you know basicly how to work on ansible, how about actually starting to work?
+#### b. Working on your issue
 
-On the ansible project the default git branch is devel, devel correspond to the latest version of this product.
-Ansible ask to you to work on the `devel` branch by creating a new local feature branch based on this.
-Backports between versions of ansible as managed by the core team.
+You did it! You finally have an environment to work on, and an issue to resolve! You can finally get yours hands dirty.
 
-Considere you want to fix a bug on docker module so the workflow looks like this:
+Since your environment is already set up, the process to start your work will be pretty straightforward. You first need to get the code you're going to work on. In the Ansible project, the default git branch is `devel`, which corresponds to the latest version of the product. Ansible requires that you work on this branch to create new local feature branches; the backports, which is the porting a feature from the `devel` branch to other branches, is done by the core team. 
 
+Say you want to fix a bug on the docker module; the workflow will look like this:
 ```sh
 $ git checkout devel
 $ git checkout -b fix-docker-module
 ```
 
-You are now on your new branch `fix-docker-module`. You can start to work on and to try to resolve your bug.
+You are now on your new branche, `fix-docker-module`. You can directly begin to try and resolve your bug.
 
-Patches should always be made against the `devel` branch.
-
-For more informations you can read the
+Note that patches should always be done using the `devel` branch, since backporting is done afterwards. For more information, you can read the
 [official ansible contributing guide](http://docs.ansible.com/ansible/latest/community.html#contributing-code-features-or-bugfixes).
 
-Now you have start to work you must be careful about coding rules best practices.
 
 #### c. Apply coding rules best practices
 
