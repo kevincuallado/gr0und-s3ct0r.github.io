@@ -224,59 +224,35 @@ Note that patches should always be done using the `devel` branch, since backport
 [official ansible contributing guide](http://docs.ansible.com/ansible/latest/community.html#contributing-code-features-or-bugfixes).
 
 
-#### c. Apply coding rules best practices
+#### c. Coding in style
 
-Ansible is maintained by lot of people so this project need to impose somes 
-development guidelines for to ensure project quality, stability, and maintainability.
+Because it is maintained by a lot of people, Ansible needs development guidelines to ensure project quality, stability and maintainability. The Ansible aesthetic encourages simple, readable code with consistent, conservatively extending, backwards-compatible improvements. When contributing, please observe the following guidelines:
 
-Ansible’s aesthetic encourages simple, readable code and consistent,
-conservatively extending, backwards-compatible improvements.
-When contributing code to Ansible, please observe the following guidelines:
+- All code developed for Ansible needs to support both Python2-2.6 and higher, and Python3-3.5 and higher,
+- Indentation should be done with 4 spaces; no tabs allowed,
+- The Ansible team does not enforce an 80-column limit, but you should keep it under 160 columns,
+- The Ansible team does not accept `style only` pull requests, unless the code is nearly unreadable,
+- Ansible is not strictly compliant with [PEP8](https://www.python.org/dev/peps/pep-0008/), but it does not hurt to follow them.
 
-- Code developed for Ansible needs to support Python2-2.6 or higher and Python3-3.5 or higher.
-- Use a 4-space indent, not tabs.
-- Ansible team do not enforce 80 column lines; up to 160 columns are acceptable.
-- Ansible team do not accept ‘style only’ pull requests unless the code is nearly unreadable.
-- Ansible are not strictly compliant with [PEP8](https://www.python.org/dev/peps/pep-0008/).See [PEP8](https://www.python.org/dev/peps/pep-0008/) for more information.
+For more information about coding guidelines, feel free to visit their [dedicated page](http://docs.ansible.com/ansible/latest/community.html#for-current-and-prospective-developers).
 
-Ansible are not strictly compliant with PEP8 but we still want to encourage you to respect this standard.
+#### d. Testing your work
 
-More informations about coding rules are availables [here](http://docs.ansible.com/ansible/latest/community.html#for-current-and-prospective-developers).
+Ansible comes in *battery included*, which means that it comes with a lot of features, including some that are very useful during development. Among those features, you'll find a full test suite that helps you make sure you did not introduce bugs or broke things while contributing. It is necessary that you write those tests, and you are ecouraged to add some if they lack, before creating a pull request. Note that adding tests does not need a specific issue for that, so feel free to add it directly in your commit ; it can only help make sure Ansibl stays stable down the line.
 
-#### d. Test your works
+The tests are automatically launched during the Continuous Integration (CI) step of the upstream projectn, therefore it's strongly recommended that you run them beforehand on your local environment to make sure it will pass so that it does not get rejected by the CI Bot (ansibulbot) or the maintainers.
 
-Ansible was battery included, this mean that ansible come with a lot of included features,
-and offers to you a many functionalities very useful during your developments.
-Ansible comes with a full suite of tests that avoiding to introduce bugs or breaking some functionalities. You so have to pass these tests and should write or improve existing if you find a lack on somes. You do not need an issue for that, feel free to contribute on it, it will be a great improvement.
+There are 4 types of tests:
+- [compilation testing](http://docs.ansible.com/ansible/latest/dev_guide/testing_compile.html): tests the Python code against a variety of Python versions.
+- [unit testing](http://docs.ansible.com/ansible/latest/dev_guide/testing_units.html): tests directly against individual parts of the code base.
+- [sanity testing](http://docs.ansible.com/ansible/latest/dev_guide/testing_sanity.html): tests the code against Ansible's coding standards and requirements.
+- [integration testing](http://docs.ansible.com/ansible/latest/dev_guide/testing_integration.html): functional tests of modules and Ansible core functionality.
 
-Before submit your works to the official project you must pass all these tests in your local environment.
+In this guide we will only focus on sanity and unit testing since the other types are not usually run for basic contributions; if you tackle more important issues however, you will be required to run all tests. 
 
-These test are automticaly launch during continuous integration (CI) steps of the upstream project.
+Unit testing test features to determine whether their function as such; if the tests fail, the you can easily figure out where the problem comes from and fix it. On the other hand, sanity check on the other hand only makes sure that your code follows the development guidelines described earlier in the article. 
 
-When your works was submitted to the ansible team CI execute tests automaticaly.
-If something went wrong your work it automaticaly rejected by the CI robot (ansibulbot) or by maintainers.
-
-We can define 4 major kinds of tests:
-- [compile](http://docs.ansible.com/ansible/latest/dev_guide/testing_compile.html): test python code against a variety of Python versions.
-- [unit](http://docs.ansible.com/ansible/latest/dev_guide/testing_units.html): tests directly against individual parts of the code base.
-- [sanity](http://docs.ansible.com/ansible/latest/dev_guide/testing_sanity.html): the primary purpose of these tests is to enforce Ansible coding standards and requirements.
-- [integration](http://docs.ansible.com/ansible/latest/dev_guide/testing_integration.html): functional tests of modules and Ansible core functionality.
-
-Now we want to focus only sanity and unit tests. These tests are commons tests for any ansible contributors.
-Others test (compile and integration) are less used for basic contributions.
-
-Unit tests are tested functionalities to determine whether they are fit for use. If something went wrong
-you can rapidely determine where the problem occur and fix it immediately.
-
-Sanity check syntax and coding rules. With it you can ensure that you have applied all the best practices in use on this project.
-
-Well! Now we want to explain to you how to deal with tests.
-
-At step 1 we already have setup your development environment so you already have all tools for launch tests.
-
-All testing modules was available via the `ansible-test` command.
-
-You can use them like this:
+Once you're done working, to run the tests all you need to do is use the ` ansible-test` command:
 
 ```sh
 $ # sanity tests
@@ -288,12 +264,11 @@ $ # unit tests
 $ ansible-test unit --tox apt # for testing the apt ansible module
 $ ansible-test unit --tox --python 3.5 # for using unit test with specific version of python
 ```
+Further information on testing can be found in the [official documentation](http://docs.ansible.com/ansible/latest/dev_guide/testing.html).
 
-For more general informations about ansible tests you can [read the official documentation](http://docs.ansible.com/ansible/latest/dev_guide/testing.html)
+Testing will prevent regression in your implementation, but the quality of the Ansible project is also due to the fact that the contributors take care to paintina  proper Version Control History.
 
-Testing help you to prevent regression on your implementations,
-but the quality of the ansible project is also due to the fact that the contributors
-take care to maintain an proper version control history.
+
 
 #### e. Maintain a properly and semantic git history
 
